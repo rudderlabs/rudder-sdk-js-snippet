@@ -62,10 +62,16 @@
   analytics.load = function(key, options){
     // Create an async script element based on your key.
     var script = document.createElement('script');
+    window.console.log('window.location', window.location);
+
     script.type = 'text/javascript';
     script.async = true;
-    script.src = 'https:<%= settings.host %>/analytics.js/v1/'
+    script.src = 'https://<%= settings.host %>/analytics.js/v1/'
       + key + '/analytics.min.js';
+
+    script.onerror = function(err) {
+      window.console.log('script.onerror', err);
+    }
 
     // Insert our script next to the first script element.
     var first = document.getElementsByTagName('script')[0];

@@ -2,6 +2,7 @@
 'use strict';
 
 var middleware = require('./test/middleware');
+var selfSigned = require('openssl-self-signed-certificate');
 
 module.exports = function(config) {
   config.set({
@@ -9,7 +10,28 @@ module.exports = function(config) {
       'test/**/*.test.js'
     ],
 
-    browsers: ['PhantomJS'],
+    protocol: 'https',
+
+    httpsServerOptions: {
+      key: selfSigned.key,
+      cert: selfSigned.cert
+    },
+
+    browsers: ['PhantomJS_custom'],
+
+    customLaunchers: {
+      'PhantomJS_custom': {
+        base: 'PhantomJS',
+        options: {
+          windowName: 'my-window',
+          settings: {
+            webSecurityEnabled: false
+          },
+        },
+        flags: ['--web-security=false', '--ignore-ssl-errors=true'],
+        debug: true
+      }
+    },
 
     frameworks: ['browserify', 'mocha'],
 

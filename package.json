@@ -31,6 +31,7 @@
     "matcha": "^0.7.0",
     "mkdirp": "^0.5.1",
     "mocha": "~1.12.1",
+    "openssl-self-signed-certificate": "^1.1.6",
     "sinon": "^1.17.5",
     "uglify-js": "^2.8.29",
     "watchify": "^3.11.0"

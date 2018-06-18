@@ -176,12 +176,14 @@ describe('snippet', function() {
     });
   });
 
-  describe('.load', function() {
+  describe.only('.load', function() {
     it('should define a load method', function() {
       assert.strictEqual(typeof window.analytics.load, 'function');
     });
 
     it('should load analytics.js from the server', function(done) {
+      window.console.log('window.location', window.location);
+
       var id = setInterval(function() {
         if (window.loaded) {
           clearInterval(id);
