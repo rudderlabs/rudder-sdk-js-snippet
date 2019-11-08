@@ -31,7 +31,6 @@ steps:
 
   - label: ":lock: Check Prod Dependencies"
     command:
-      - buildkite-agent artifact download dist/* .
       - npm config set "//registry.npmjs.org/:_authToken" $${NPM_TOKEN}
       - npm ci
       - node -e "require('./dist/boot'); process.exit(0)"
@@ -47,3 +46,7 @@ steps:
             - NPM_TOKEN
 
   - wait: ~
+
+  - label: ":rocket: Publish"
+    branches: master
+    command: yarn run publish
