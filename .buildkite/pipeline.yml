@@ -52,15 +52,3 @@ steps:
             - AWS_SESSION_TOKEN
 
   - wait: ~
-
-  - label: ":hammer: Docker Build"
-    branches: master staging
-    command:
-      - buildkite-agent artifact download dist/* .
-      - docker build -t $${TREB_IMAGE_TAG} .
-      - docker tag $${TREB_IMAGE_TAG} $${TREB_SHORT_IMAGE_TAG}
-      - docker push $${TREB_IMAGE_TAG}
-    plugins:
-      - ssh://git@github.com/segmentio/cache-buildkite-plugin#v1.0.0:
-          key: "v1-cache-prod-{{ checksum 'package-lock.json' }}"
-          paths: ["node_modules/"]
