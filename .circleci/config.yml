@@ -1,0 +1,62 @@
+defaults: &defaults
+  working_directory: ~/analytics.js-core
+  docker:
+    - image: circleci/node:8-browsers
+
+version: 2
+jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: npm config set "//registry.npmjs.org/:_authToken" $NPM_AUTH
+      - restore_cache:
+          key: yarn-dependency-cache-{{ checksum "package-lock.json" }}
+      - run: npm ci
+      - save_cache:
+          key: yarn-dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - run: make test
+      - run: yarn codecov
+      - store_test_results:
+          path: junit-reports
+      - persist_to_workspace:
+          root: .
+          paths:
+  snyk:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace: { at: . }
+      - run: yarn run snyk test --severity-threshold=high
+      - run: yarn run snyk monitor
+
+  publish:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace: { at: . }
+      - run: npm config set "//registry.npmjs.org/:_authToken" $NPM_AUTH
+      - run: npm publish .
+
+workflows:
+  version: 2
+  test_and_publish:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
+      - snyk:
+          context: snyk
+          requires:
+            - coverage
+      - publish:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*(-.+)?/
+            branches:
+              ignore: /.*/
