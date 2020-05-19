@@ -1,5 +1,5 @@
 {
-  "name": "@segment/snippet",
+  "name": "rudder-snippet",
   "author": "Segment.io <friends@segment.com>, Don Stolz",
   "version": "4.11.0",
   "repository": "git://github.com/donald-stolz/snippet.git",
