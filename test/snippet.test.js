@@ -1,5 +1,8 @@
 'use strict';
 /* eslint-disable no-restricted-syntax */
+// 
+// TODO: Update for RudderStack snippet
+// 
 
 var assert = require('assert');
 var render = require('..');

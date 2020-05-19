@@ -1,9 +1,9 @@
 {
   "name": "@segment/snippet",
-  "author": "Segment.io <friends@segment.com>",
+  "author": "Segment.io <friends@segment.com>, Don Stolz",
   "version": "4.11.0",
-  "repository": "git://github.com/segmentio/snippet.git",
-  "description": "Templating methods for rendering the analytics.js snippet.",
+  "repository": "git://github.com/donald-stolz/snippet.git",
+  "description": "Templating methods for rendering the rudder-analytics.js snippet.",
   "main": "lib/index.js",
   "license": "MIT",
   "dependencies": {
