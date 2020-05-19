@@ -13,35 +13,41 @@ describe('snippet', function() {
       assert.strictEqual(typeof snippet.max(), 'string');
     });
 
-    it('should set the host', function() {
+    // it('should set the host', function() {
+    //   assertContains(
+    //     snippet.max({ host: 'example.com/v1/rudder-analytics.min.js' }),
+    //     'example.com/analytics.js/v1');
+    // });
+
+    it('should set the data plane uri', function() {
       assertContains(
-        snippet.max({ host: 'example.com' }),
-        'example.com/analytics.js/v1');
+        snippet.max({ dataPlaneUri: 'example.com' }),
+        'rudderanalytics.load("YOUR_WRITE_KEY", "example.com")');
     });
 
-    it('should set the api key', function() {
+    it('should set the write key', function() {
       assertContains(
-        snippet.max({ apiKey: 'key' }),
-        'analytics.load("key")');
+        snippet.max({ writeKey: 'key' }),
+        'rudderanalytics.load("key", "DATA_PLANE_URI")');
     });
 
     it('should not include page if explicitly omitted', function() {
       assertDoesNotContain(
         snippet.max({ page: false }),
-        'analytics.page()');
+        'rudderanalytics.page()');
     });
 
     it('should not include load if explicitly omitted', function() {
       assertDoesNotContain(
         snippet.max({ load: false }),
-        'analytics.load('
+        'rudderanalytics.load('
       );
     });
 
     it('should include page by default', function() {
       assertContains(
         snippet.max({}),
-        'analytics.page()');
+        'rudderanalytics.page()');
     });
 
     it('should omit page.category if not provided', function() {
@@ -73,16 +79,22 @@ describe('snippet', function() {
       assert.strictEqual(typeof snippet.min(), 'string');
     });
 
-    it('should set the host', function() {
-      assertContains(
-        snippet.min({ host: 'example.com' }),
-        'example.com/analytics.js/v1');
-    });
+    // it('should set the host', function() {
+    //   assertContains(
+    //     snippet.max({ host: 'example.com/v1/rudder-analytics.min.js' }),
+    //     'example.com/analytics.js/v1');
+    // });
 
-    it('should set the api key', function() {
+    it('should set the data plane uri', function() {
       assertContains(
-        snippet.min({ apiKey: 'key' }),
-        'analytics.load("key")');
+        snippet.max({ dataPlaneUri: 'example.com' }),
+        'rudderanalytics.load("YOUR_WRITE_KEY", "example.com")');
+    });
+  
+    it('should set the write key', function() {
+      assertContains(
+        snippet.max({ writeKey: 'key' }),
+        'rudderanalytics.load("key", "DATA_PLANE_URI")');
     });
 
     it('should be shorter than max', function() {
@@ -93,7 +105,7 @@ describe('snippet', function() {
 
     it('should separate out the page and load calls', function() {
       var min = snippet.min();
-      assert.strictEqual(min.split('\n').length, 4);
+      assert.strictEqual(min.split('\n').length, 3);
     });
   });
 });

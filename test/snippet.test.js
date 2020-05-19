@@ -14,7 +14,7 @@ describe('snippet', function() {
   before(function() {
     snippet = Function(render.max({
       // https://app.segment.com/segment-libraries/sources/snippet/settings/keys
-      apiKey: 'zCueSsEKipbrRgqbJarlTG8UJsAZWpkm'
+      writeKey: 'zCueSsEKipbrRgqbJarlTG8UJsAZWpkm'
     }));
   });
 
