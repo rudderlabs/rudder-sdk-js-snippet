@@ -34,3 +34,12 @@ var contents = snippet.max({
 ### snippet.min(options)
 
   Returns the minified version of the snippet.
+
+## TODO 
+
+- [ ] Update `test/render.test.js`
+- [ ] Update `test/snippet.test.js`
+- [ ] README add useAutoTrack & configUrl
+- [ ] README update opts description
+- [ ] CI Build for dist
+- [ ] Proper package manager set up

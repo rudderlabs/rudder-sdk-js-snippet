@@ -1,6 +1,6 @@
 {
   "name": "rudder-snippet",
-  "author": "Segment.io <friends@segment.com>, Don Stolz",
+  "author": "Segment.io <friends@segment.com>, Don Stolz <donald-stolz>",
   "version": "4.11.0",
   "repository": "git://github.com/donald-stolz/snippet.git",
   "description": "Templating methods for rendering the rudder-analytics.js snippet.",

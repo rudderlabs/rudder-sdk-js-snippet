@@ -22,13 +22,19 @@ describe('snippet', function() {
     it('should set the data plane uri', function() {
       assertContains(
         snippet.max({ dataPlaneUri: 'example.com' }),
-        'rudderanalytics.load("YOUR_WRITE_KEY", "example.com")');
+        'rudderanalytics.load("YOUR_WRITE_KEY", "example.com", {})');
     });
 
     it('should set the write key', function() {
       assertContains(
         snippet.max({ writeKey: 'key' }),
-        'rudderanalytics.load("key", "DATA_PLANE_URI")');
+        'rudderanalytics.load("key", "DATA_PLANE_URI", {})');
+    });
+	
+    it('should set useAutoTracking true', function() {
+      assertContains(
+        snippet.max({ useAutoTracking: true }),
+        'rudderanalytics.load("key", "DATA_PLANE_URI", {"useAutoTracking":true})');
     });
 
     it('should not include page if explicitly omitted', function() {
@@ -87,14 +93,14 @@ describe('snippet', function() {
 
     it('should set the data plane uri', function() {
       assertContains(
-        snippet.max({ dataPlaneUri: 'example.com' }),
-        'rudderanalytics.load("YOUR_WRITE_KEY", "example.com")');
+        snippet.min({ dataPlaneUri: 'example.com' }),
+        'rudderanalytics.load("YOUR_WRITE_KEY", "example.com", {})');
     });
   
     it('should set the write key', function() {
       assertContains(
-        snippet.max({ writeKey: 'key' }),
-        'rudderanalytics.load("key", "DATA_PLANE_URI")');
+        snippet.min({ writeKey: 'key' }),
+        'rudderanalytics.load("key", "DATA_PLANE_URI", {})');
     });
 
     it('should be shorter than max', function() {
