@@ -36,7 +36,7 @@ var contents = snippet.max({
   Returns the minified version of the snippet.
 
 ## TODO 
-
+- [ ] Add simple example
 - [ ] Update `test/render.test.js`
 - [ ] Update `test/snippet.test.js`
 - [ ] README add useAutoTrack & configUrl
