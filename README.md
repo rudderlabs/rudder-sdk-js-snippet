@@ -1,12 +1,16 @@
-# snippet
+# What is RudderStack?
 
-  Render the rudder-analytics.js snippet.
+[RudderStack](https://rudderstack.com/) is a **customer data pipeline** tool for collecting, routing and processing data from your websites, apps, cloud tools, and data warehouse.
 
-  The recommended way to use rudder-analytics.js is to follow the [RudderStack JavaScript SDK quickstart guide](https://github.com/rudderlabs/rudder-sdk-js#how-to-use-the-rudderstack-javascript-sdk). If you absolutely need to generate a snippet dynamically, this is an alternate solution. Note that when using this in-browser, the global `rudderanalytics` object will not be defined until the snippet is rendered and executed.
+More information on RudderStack can be found [here](https://github.com/rudderlabs/rudder-server).
 
-  This package is supported on IE8+, Chrome, Firefox, Safari 9, Microsoft Edge, Node.js 0.10+
+## About this repository
 
-  For IE7 support, install a global `JSON` polyfill on the page prior to loading this package.
+The resources in this repository allow you to render the rudder-analytics.js snippet dynamically, as an alternative to the preferred and recommended method, i.e. the [RudderStack JavaScript SDK quickstart guide](https://github.com/rudderlabs/rudder-sdk-js#how-to-use-the-rudderstack-javascript-sdk). 
+
+Note that when using this in-browser, the global `rudderanalytics` object will not be defined until the snippet is rendered and executed. This package is supported on IE8+, Chrome, Firefox, Safari 9, Microsoft Edge, Node.js 0.10+
+
+For IE7 support, install a global `JSON` polyfill on the page prior to loading this package.
 
 ## Example
 
@@ -35,7 +39,8 @@ var contents = snippet.max({
 
   Returns the minified version of the snippet.
 
-## TODO 
+## TODO
+
 - [ ] Add simple example
 - [ ] Update `test/render.test.js`
 - [ ] Update `test/snippet.test.js`
@@ -43,3 +48,7 @@ var contents = snippet.max({
 - [ ] README update opts description
 - [ ] CI Build for dist
 - [ ] Proper package manager set up
+
+## Contact Us
+
+If you come across any issues while configuring or using this repository, please feel free to start a conversation on our [Slack](https://resources.rudderstack.com/join-rudderstack-slack) channel. We will be happy to help you.
