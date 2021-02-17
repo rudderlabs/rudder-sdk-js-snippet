@@ -6,7 +6,7 @@ More information on RudderStack can be found [here](https://github.com/rudderlab
 
 ## About this repository
 
-The resources in this repository allow you to render the rudder-analytics.js snippet dynamically, as an alternative to the preferred and recommended method, i.e. the [RudderStack JavaScript SDK quickstart guide](https://github.com/rudderlabs/rudder-sdk-js#how-to-use-the-rudderstack-javascript-sdk). 
+The resources in this repository allow you to render the `rudder-analytics.js` snippet dynamically, as an alternative to the preferred and recommended method, i.e. the [RudderStack JavaScript SDK quickstart guide](https://github.com/rudderlabs/rudder-sdk-js#how-to-use-the-rudderstack-javascript-sdk). 
 
 Note that when using this in-browser, the global `rudderanalytics` object will not be defined until the snippet is rendered and executed. This package is supported on IE8+, Chrome, Firefox, Safari 9, Microsoft Edge, Node.js 0.10+
 
