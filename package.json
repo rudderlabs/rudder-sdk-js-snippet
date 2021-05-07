@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@ndhoule/map": "^2.0.1"
+    "underscore": ">=1.12.1"
   },
   "devDependencies": {
     "@segment/clear-env": "^2.0.3",
@@ -34,5 +35,6 @@
     "sinon": "^1.17.5",
     "uglify-js": "^2.8.29",
     "watchify": "^3.11.0"
+    "underscore": ">=1.12.1"
   }
 }
